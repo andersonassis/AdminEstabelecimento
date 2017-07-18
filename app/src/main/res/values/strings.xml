@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Administração</string>
+    <string name="action_settings">Adicionar</string>
+    <string name="excluir">Exluir</string>
+    <string name="txtadmin">Administração</string>
+
+    <string name="btn_cadastro_categoria">Cadastro de categorias</string>
+    <string name="btn_cadastro_produtos">Cadastro de produtos</string>
+    <string name="listar_pedidos">Listar Pedidos</string>
+
+    <string name="btn_salvar_categoria">Salvar</string>
+</resources>
