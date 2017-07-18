@@ -9,4 +9,6 @@
     <string name="listar_pedidos">Listar Pedidos</string>
 
     <string name="btn_salvar_categoria">Salvar</string>
+    <string name="hint">Insira a categoria</string>
+
 </resources>

@@ -39,6 +39,7 @@ public class CategoryActivity extends AppCompatActivity implements ValueEventLis
     private CategoryAdapter adaptador;
     @BindView(R.id.recyclerView) RecyclerView view_reciclada;
     Boolean saved=null;
+    int cont = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +58,7 @@ public class CategoryActivity extends AppCompatActivity implements ValueEventLis
     public void onDataChange(DataSnapshot dataSnapshot) {
         lista.clear();
         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+            cont++;
             Category objeto = snapshot.getValue(Category.class);
             lista.add(objeto);
         }
@@ -66,7 +68,6 @@ public class CategoryActivity extends AppCompatActivity implements ValueEventLis
         view_reciclada.setHasFixedSize(true);
         view_reciclada.setLayoutManager(new LinearLayoutManager(getApplicationContext(),
                 LinearLayoutManager.VERTICAL, false));
-
     }
 
     @Override
@@ -85,7 +86,7 @@ public class CategoryActivity extends AppCompatActivity implements ValueEventLis
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int    id = 1234;
+                int    id   = 789;
                 String name = nameEditTxt.getText().toString();
 
                 Category s = new Category();
@@ -105,16 +106,19 @@ public class CategoryActivity extends AppCompatActivity implements ValueEventLis
                 }else{
                     Toast.makeText(CategoryActivity.this, "O nome não pode estar vazio", Toast.LENGTH_SHORT).show();
                 }
-
-
             }
         });
         d.show();
     }
 
+    //salvar dados no firebase
     public Boolean salvar(Category category)
     {
-        String userId = "3";
+        int contador = 1;
+        int resultado = 0;
+        resultado = contador + cont;
+
+        String userId = String.valueOf(resultado);
         if(category==null)
         {
             saved=false;
@@ -122,8 +126,7 @@ public class CategoryActivity extends AppCompatActivity implements ValueEventLis
         {
             try
             {
-                data_reference.child(userId).push().setValue(category);
-
+                data_reference.child(userId).setValue(category);
                 saved=true;
             }catch (DatabaseException e)
             {
@@ -133,8 +136,6 @@ public class CategoryActivity extends AppCompatActivity implements ValueEventLis
         }
         return saved;
     }
-
-
 
 
     //menu
