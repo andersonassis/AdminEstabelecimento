@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         btnCadastroProdutos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(MainActivity.this, ProductActivity.class));
             }
         });
 

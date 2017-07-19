@@ -10,5 +10,8 @@
 
     <string name="btn_salvar_categoria">Salvar</string>
     <string name="hint">Insira a categoria</string>
+    <string name="hintprodutos">Insira o nome do produto</string>
+    <string name="hintdescrprodutos">Insira descrição do produto</string>
+    <string name="hintprecoprodutos">Insira preço do produto</string>
 
 </resources>

@@ -1,7 +1,6 @@
 package com.br.adminestabelecimento;
 
 import android.app.Dialog;
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,13 +9,14 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.br.adminestabelecimento.adapters.CategoryAdapter;
+import com.br.adminestabelecimento.adapters.ProductAdapter;
 import com.br.adminestabelecimento.models.Category;
+import com.br.adminestabelecimento.models.Product;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseException;
@@ -31,25 +31,28 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class CategoryActivity extends AppCompatActivity implements ValueEventListener{
+public class ProductActivity extends AppCompatActivity implements ValueEventListener {
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference data_reference;
-    public List<Category> lista = new ArrayList<>();
+    public List<Product> lista = new ArrayList<>();
     private Gson gson;
-    private CategoryAdapter adaptador;
+    private ProductAdapter adaptador;
     @BindView(R.id.recyclerView) RecyclerView view_reciclada;
-    Boolean saved=null;
     int cont = 0;
+    Boolean saved=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_category);
+        setContentView(R.layout.activity_product);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Categorias");
+        getSupportActionBar().setTitle("Cadastro de Produto");
 
         ButterKnife.bind(this);
-        data_reference = database.getReference().child("menu");
+       // SugarContext.init(this);
+        //data_reference = database.getReference().child("products").child(categoria);
+
+        data_reference = database.getReference().child("products");
         data_reference.addValueEventListener(this);
 
     }//fim do oncreate
@@ -59,15 +62,16 @@ public class CategoryActivity extends AppCompatActivity implements ValueEventLis
         lista.clear();
         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
             cont++;
-            Category objeto = snapshot.getValue(Category.class);
+            Product objeto = snapshot.getValue(Product.class);
             lista.add(objeto);
         }
 
-        adaptador = new CategoryAdapter(view_reciclada.getContext(), lista);
+        adaptador = new ProductAdapter(view_reciclada.getContext(), lista);
         view_reciclada.setAdapter(adaptador);
         view_reciclada.setHasFixedSize(true);
         view_reciclada.setLayoutManager(new LinearLayoutManager(getApplicationContext(),
                 LinearLayoutManager.VERTICAL, false));
+
     }
 
     @Override
@@ -75,44 +79,56 @@ public class CategoryActivity extends AppCompatActivity implements ValueEventLis
         Log.w("RETORNO", "loadPost:onCancelled", databaseError.toException());
     }
 
+
     //tela de dialogo para salvar
     private void displayInputDialog()
     {
         Dialog d =new Dialog(this);
-        d.setTitle("Salvar Categorias");
-        d.setContentView(R.layout.imput_dialog);
-        final EditText nameEditTxt= (EditText) d.findViewById(R.id.nameEditText);
+        d.setTitle("Salvar Produtos");
+        d.setContentView(R.layout.imput_dialog_produtos);
+        final EditText nomeproduto       = (EditText) d.findViewById(R.id.nomeproduto);
+        final EditText descricaoprodutos = (EditText) d.findViewById(R.id.descricaoprodutos);
+        final EditText precoprodutos     = (EditText) d.findViewById(R.id.precoproduto);
         Button saveBtn= (Button) d.findViewById(R.id.saveBtn);
+
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int    id   = 131415;
-                String name = nameEditTxt.getText().toString();
+                int    id   = 1;//aqui um random
+                String name    = nomeproduto.getText().toString();
+                String descri  = descricaoprodutos.getText().toString();
+                String preco   =  precoprodutos.getText().toString();
 
-                Category s = new Category();
+                Product s = new Product();
                 s.setId(id);
                 s.setName(name);
+                s.setDescription(descri);
+                s.setPrice(Double.valueOf(preco));
+
                 if(name.length()>0 && name != null)
                 {
                     if(salvar(s))
                     {
-                        nameEditTxt.setText("");
-                        adaptador = new CategoryAdapter(view_reciclada.getContext(), lista);
+                        nomeproduto.setText("");
+                        descricaoprodutos.setText("");
+                        precoprodutos.setText("");
+                        adaptador = new ProductAdapter(view_reciclada.getContext(), lista);
                         view_reciclada.setAdapter(adaptador);
                         view_reciclada.setHasFixedSize(true);
                         view_reciclada.setLayoutManager(new LinearLayoutManager(getApplicationContext(),
                                 LinearLayoutManager.VERTICAL, false));
                     }
                 }else{
-                    Toast.makeText(CategoryActivity.this, "O nome não pode estar vazio", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ProductActivity.this, "O nome não pode estar vazio", Toast.LENGTH_SHORT).show();
                 }
             }
         });
         d.show();
     }
 
+
     //salvar dados no firebase
-    public Boolean salvar(Category category)
+    public Boolean salvar(Product category)
     {
         int contador = 1;
         int resultado = 0;
@@ -138,6 +154,31 @@ public class CategoryActivity extends AppCompatActivity implements ValueEventLis
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     //menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -147,7 +188,7 @@ public class CategoryActivity extends AppCompatActivity implements ValueEventLis
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-       int id = item.getItemId();
+        int id = item.getItemId();
         if(id==android.R.id.home){
             onBackPressed();
             return true;
@@ -169,8 +210,4 @@ public class CategoryActivity extends AppCompatActivity implements ValueEventLis
 
         return super.onOptionsItemSelected(item);
     }
-
-
-
-
 }//fim da classe
