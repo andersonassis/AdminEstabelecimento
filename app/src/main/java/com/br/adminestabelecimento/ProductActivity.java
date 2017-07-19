@@ -52,7 +52,7 @@ public class ProductActivity extends AppCompatActivity implements ValueEventList
        // SugarContext.init(this);
         //data_reference = database.getReference().child("products").child(categoria);
 
-        data_reference = database.getReference().child("products");
+        data_reference = database.getReference().child("products").child("123");;
         data_reference.addValueEventListener(this);
 
     }//fim do oncreate
