@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
 
         //cast dos botões
         btnCadastroCategoria = (Button)findViewById(R.id.btn_cad_categoria);
-        btnCadastroProdutos  = (Button)findViewById(R.id.btn_cad_produtos);
         btnListarProdutos    = (Button)findViewById(R.id.btn_lista_pedidos);
 
        //clicks
@@ -35,14 +34,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, CategoryActivity.class));
             }
         });
-        //Cadastro Produtos
-        btnCadastroProdutos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, ProductActivity.class));
-            }
-        });
-
+        
         //Listar Produtos
         btnListarProdutos.setOnClickListener(new View.OnClickListener() {
             @Override

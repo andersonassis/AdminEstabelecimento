@@ -24,6 +24,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
+import com.orm.SugarContext;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +41,7 @@ public class ProductActivity extends AppCompatActivity implements ValueEventList
     @BindView(R.id.recyclerView) RecyclerView view_reciclada;
     int cont = 0;
     Boolean saved=null;
+    private String categoria;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +51,9 @@ public class ProductActivity extends AppCompatActivity implements ValueEventList
         getSupportActionBar().setTitle("Cadastro de Produto");
 
         ButterKnife.bind(this);
-       // SugarContext.init(this);
-        //data_reference = database.getReference().child("products").child(categoria);
-
-        data_reference = database.getReference().child("products").child("123");;
+      //  SugarContext.init(this);
+        categoria = getIntent().getStringExtra("id_categoria");
+        data_reference = database.getReference().child("products").child(categoria);
         data_reference.addValueEventListener(this);
 
     }//fim do oncreate
@@ -94,7 +95,10 @@ public class ProductActivity extends AppCompatActivity implements ValueEventList
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int    id   = 1;//aqui um random
+                int    seq  = 1;
+                int    result = 0;
+                result = seq + cont;
+                int    id   =  result;//aqui um random
                 String name    = nomeproduto.getText().toString();
                 String descri  = descricaoprodutos.getText().toString();
                 String preco   =  precoprodutos.getText().toString();
@@ -128,21 +132,21 @@ public class ProductActivity extends AppCompatActivity implements ValueEventList
 
 
     //salvar dados no firebase
-    public Boolean salvar(Product category)
+    public Boolean salvar(Product produto)
     {
         int contador = 1;
         int resultado = 0;
         resultado = contador + cont;
 
         String userId = String.valueOf(resultado);
-        if(category==null)
+        if(produto==null)
         {
             saved=false;
         }else
         {
             try
             {
-                data_reference.child(userId).setValue(category);
+                data_reference.child(userId).setValue(produto);
                 saved=true;
             }catch (DatabaseException e)
             {

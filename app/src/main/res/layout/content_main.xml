@@ -30,17 +30,7 @@
         android:layout_alignParentStart="true" />
 
 
-    <Button
-        android:id="@+id/btn_cad_produtos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_cadastro_produtos"
-        android:textSize="20sp"
-        android:layout_marginTop="53dp"
 
-        android:layout_below="@+id/btn_cad_categoria"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 
 
     <Button

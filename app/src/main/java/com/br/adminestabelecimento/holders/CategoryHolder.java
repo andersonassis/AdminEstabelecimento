@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.br.adminestabelecimento.ProductActivity;
 import com.br.adminestabelecimento.R;
 import com.br.adminestabelecimento.models.Category;
 
@@ -28,14 +29,14 @@ public final class CategoryHolder extends RecyclerView.ViewHolder {
         ButterKnife.bind(this, itemView);
 
         // clica na categoria
-       /* itemView.setOnClickListener(new View.OnClickListener(){
+        itemView.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Context c = v.getContext();
-                Intent intent = new Intent(c,ProductsActivity.class);
+                Intent intent = new Intent(c,ProductActivity.class);
                 intent.putExtra("id_categoria", Long.toString(categoria.getId()));
                 c.startActivity(intent);
             }
-        });*/
+        });
     }
 }
