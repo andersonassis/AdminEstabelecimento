@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         btnListarProdutos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(MainActivity.this, MyOrdersActivity.class));
             }
         });
 
