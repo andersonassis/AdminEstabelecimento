@@ -1,6 +1,7 @@
 package com.br.adminestabelecimento;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -42,6 +43,7 @@ public class ProductActivity extends AppCompatActivity implements ValueEventList
     int cont = 0;
     Boolean saved=null;
     private String categoria;
+    Dialog d;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +52,9 @@ public class ProductActivity extends AppCompatActivity implements ValueEventList
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Cadastro de Produto");
 
+
         ButterKnife.bind(this);
-      //  SugarContext.init(this);
+
         categoria = getIntent().getStringExtra("id_categoria");
         data_reference = database.getReference().child("products").child(categoria);
         data_reference.addValueEventListener(this);
@@ -84,7 +87,7 @@ public class ProductActivity extends AppCompatActivity implements ValueEventList
     //tela de dialogo para salvar
     private void displayInputDialog()
     {
-        Dialog d =new Dialog(this);
+        d =new Dialog(this);
         d.setTitle("Salvar Produtos");
         d.setContentView(R.layout.imput_dialog_produtos);
         final EditText nomeproduto       = (EditText) d.findViewById(R.id.nomeproduto);
@@ -116,11 +119,15 @@ public class ProductActivity extends AppCompatActivity implements ValueEventList
                         nomeproduto.setText("");
                         descricaoprodutos.setText("");
                         precoprodutos.setText("");
-                        adaptador = new ProductAdapter(view_reciclada.getContext(), lista);
+                        d.dismiss();
+                        Intent intent = getIntent();
+                        startActivity(intent);
+                        finish();
+                       /* adaptador = new ProductAdapter(view_reciclada.getContext(), lista);
                         view_reciclada.setAdapter(adaptador);
                         view_reciclada.setHasFixedSize(true);
                         view_reciclada.setLayoutManager(new LinearLayoutManager(getApplicationContext(),
-                                LinearLayoutManager.VERTICAL, false));
+                                LinearLayoutManager.VERTICAL, false));*/
                     }
                 }else{
                     Toast.makeText(ProductActivity.this, "O nome não pode estar vazio", Toast.LENGTH_SHORT).show();
@@ -128,6 +135,7 @@ public class ProductActivity extends AppCompatActivity implements ValueEventList
             }
         });
         d.show();
+
     }
 
 

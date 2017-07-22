@@ -40,6 +40,7 @@ public class CategoryActivity extends AppCompatActivity implements ValueEventLis
     @BindView(R.id.recyclerView) RecyclerView view_reciclada;
     Boolean saved=null;
     int cont = 0;
+    Dialog d;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +79,7 @@ public class CategoryActivity extends AppCompatActivity implements ValueEventLis
     //tela de dialogo para salvar
     private void displayInputDialog()
     {
-        Dialog d =new Dialog(this);
+        d =new Dialog(this);
         d.setTitle("Salvar Categorias");
         d.setContentView(R.layout.imput_dialog);
         final EditText nameEditTxt= (EditText) d.findViewById(R.id.nameEditText);
@@ -86,7 +87,10 @@ public class CategoryActivity extends AppCompatActivity implements ValueEventLis
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int    id   = 131415;
+                int    seq  = 1;
+                int    result = 0;
+                result = seq + cont;
+                int    id   = result;
                 String name = nameEditTxt.getText().toString();
 
                 Category s = new Category();
@@ -97,11 +101,15 @@ public class CategoryActivity extends AppCompatActivity implements ValueEventLis
                     if(salvar(s))
                     {
                         nameEditTxt.setText("");
-                        adaptador = new CategoryAdapter(view_reciclada.getContext(), lista);
+                        d.dismiss();
+                        Intent intent = getIntent();
+                        startActivity(intent);
+                        finish();
+                       /* adaptador = new CategoryAdapter(view_reciclada.getContext(), lista);
                         view_reciclada.setAdapter(adaptador);
                         view_reciclada.setHasFixedSize(true);
                         view_reciclada.setLayoutManager(new LinearLayoutManager(getApplicationContext(),
-                                LinearLayoutManager.VERTICAL, false));
+                                LinearLayoutManager.VERTICAL, false));*/
                     }
                 }else{
                     Toast.makeText(CategoryActivity.this, "O nome não pode estar vazio", Toast.LENGTH_SHORT).show();

@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, CategoryActivity.class));
             }
         });
-        
+
         //Listar Produtos
         btnListarProdutos.setOnClickListener(new View.OnClickListener() {
             @Override
