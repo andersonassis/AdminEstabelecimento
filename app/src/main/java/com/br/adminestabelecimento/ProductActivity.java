@@ -120,6 +120,7 @@ public class ProductActivity extends AppCompatActivity implements ValueEventList
                         descricaoprodutos.setText("");
                         precoprodutos.setText("");
                         d.dismiss();
+                      //  Intent intent = new Intent(getApplicationContext(), ListarProdutor.class);
                         Intent intent = getIntent();
                         startActivity(intent);
                         finish();

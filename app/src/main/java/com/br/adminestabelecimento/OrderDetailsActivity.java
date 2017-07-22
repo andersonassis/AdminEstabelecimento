@@ -1,9 +1,13 @@
 package com.br.adminestabelecimento;
 
+import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.br.adminestabelecimento.adapters.ItenOrderAdapter;
@@ -14,6 +18,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,12 +31,12 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class OrderDetailsActivity extends AppCompatActivity implements ValueEventListener {
+public class OrderDetailsActivity extends AppCompatActivity {
     private List<Pedido> lista2 = new ArrayList<>();
     @BindView(R.id.txtid) TextView txtid;
-    private FirebaseDatabase database = FirebaseDatabase.getInstance();
-    private DatabaseReference data_reference;
-    private ItenOrderAdapter adaptador;
+    @BindView(R.id.listaProdutos) ListView lista;
+    SimpleCursorAdapter ad;
+    String listapedidos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,45 +44,38 @@ public class OrderDetailsActivity extends AppCompatActivity implements ValueEven
         setContentView(R.layout.activity_order_details);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Detalhes do pedido");
-
         ButterKnife.bind(this);
-        data_reference = database.getReference().child("order").child("itens");
-        data_reference.addValueEventListener(this);
+        listapedidos = getIntent().getStringExtra("produtos");// json dos produtos
+        criarListagem();
 
-        String id = getIntent().getStringExtra("id");
-        txtid.setText(id);
+
+       // txtid.setText(listapedidos);
 
     }//fim do oncreate
 
+    //metodo para criar a listagem
+    public void criarListagem() {
+        try {
+            JSONArray jsonArray = new JSONArray(listapedidos);
+            int length = jsonArray.length();
+            List<String> listContents = new ArrayList<String>(length);
+            for (int i = 0; i < length; i++)
+            {
+                JSONObject itens = jsonArray.getJSONObject(i);
+                String produto1 = itens.getString("produto");
+                String quantidade = itens.getString("quantidade");
+                String obs = itens.getString("obs");
 
-    @Override
-    public void onDataChange(DataSnapshot dataSnapshot) {
-        lista2.clear();
+                listContents.add(jsonArray.getString(i));
 
-        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-            Pedido objeto = snapshot.getValue(Pedido.class);
-            if(objeto != null) {
-                  lista2.add(objeto);
-                }
             }
+            lista.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listContents));
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
     }
-
-    @Override
-    public void onCancelled(DatabaseError databaseError) {
-        Log.w("RETORNO", "loadPost:onCancelled", databaseError.toException());
-    }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
