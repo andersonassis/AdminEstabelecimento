@@ -33,6 +33,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductHolder> {
     public void onBindViewHolder(ProductHolder holder, int i) {
         Product objeto = lista.get(i);
         holder.txtnome.setText(objeto.getName());
+        holder.txtdescricao.setText(objeto.getDescription());
         holder.txtpreco.setText(Double.toString(objeto.getPrice()));
         holder.produto = objeto;
     }

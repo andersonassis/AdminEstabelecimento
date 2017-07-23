@@ -15,16 +15,87 @@
         android:padding="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <!-- Nome do produto -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txt8"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="20sp"
+            android:text="@string/txtprodutos" />
+
+
         <TextView
             android:id="@+id/txtnome"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Nome aqui" />
+            android:textSize="20sp"
+            android:text="aqui" />
+
+        </LinearLayout>
+
+
+
+        <!-- descrição do produto -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txt10"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="20sp"
+                android:text="@string/txtdescricao" />
+
+
+            <TextView
+                android:id="@+id/txtdescricao"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="20sp"
+                android:text="aqui" />
+
+
+        </LinearLayout>
+
+
+
+
+
+
+        <!-- Preço do produto -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txt9"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="20sp"
+            android:text="@string/txtpreco" />
+
+
         <TextView
             android:id="@+id/txtpreco"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Nome aqui" />
+            android:textSize="20sp"
+            android:text="aqui" />
+
+
+    </LinearLayout>
+
+
+
 
 
     </LinearLayout>

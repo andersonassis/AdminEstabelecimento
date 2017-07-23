@@ -23,6 +23,7 @@ import butterknife.ButterKnife;
 
 public class ProductHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.txtnome) public TextView txtnome;
+    @BindView(R.id.txtdescricao) public TextView txtdescricao;
     @BindView(R.id.txtpreco) public TextView txtpreco;
 
     public Product produto;

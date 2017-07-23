@@ -11,7 +11,7 @@
         android:id="@+id/texto1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Produto:  "
+        android:text="@string/txtprodutos"
         android:textStyle="bold"
         android:textSize="20sp"
         />
@@ -35,7 +35,7 @@
         android:id="@+id/texto2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Quantidade:  "
+        android:text="@string/txtqtd"
         android:textStyle="bold"
         android:textSize="20sp"
         />
@@ -59,7 +59,7 @@
         android:id="@+id/texto3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Observações:  "
+        android:text="@string/txtobs"
         android:textSize="20sp"
         android:textStyle="bold"
         />
