@@ -15,11 +15,142 @@
         android:padding="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txt4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Numero do pedido:  "
+            android:textSize="20sp"/>
+
         <TextView
             android:id="@+id/txtid"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Nome aqui" />
+            android:text="Nome aqui"
+            android:textSize="20sp"/>
+
+        </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txt5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Endereço: "
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/txtendereco"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="ENDEREÇO"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/txt6"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Bairro: "
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/txtbairro"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Bairro"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/txt7"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Entregar ou Retirar: "
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/txtentregar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Entregar"
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/txt8"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Forma de Pagamento: "
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/txtpagamento"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Pagamento"
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp"/>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/txt9"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Total: "
+                android:textColor="@color/colorAccent"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:id="@+id/txttotal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Pagamento"
+                android:textColor="@color/colorAccent"
+                android:textSize="25sp"/>
+
+        </LinearLayout>
+
+
+
+
+
     </LinearLayout>
 
 </android.support.v7.widget.CardView>

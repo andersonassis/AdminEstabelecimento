@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -25,6 +26,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -33,10 +35,9 @@ import butterknife.ButterKnife;
 
 public class OrderDetailsActivity extends AppCompatActivity {
     private List<Pedido> lista2 = new ArrayList<>();
-    @BindView(R.id.txtid) TextView txtid;
     @BindView(R.id.listaProdutos) ListView lista;
-    SimpleCursorAdapter ad;
     String listapedidos;
+    ArrayList<HashMap<String, String>> productList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,7 @@ public class OrderDetailsActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Detalhes do pedido");
         ButterKnife.bind(this);
         listapedidos = getIntent().getStringExtra("produtos");// json dos produtos
+        productList = new ArrayList<>();
         criarListagem();
 
 
@@ -66,19 +68,26 @@ public class OrderDetailsActivity extends AppCompatActivity {
                 String quantidade = itens.getString("quantidade");
                 String obs = itens.getString("obs");
 
-                listContents.add(jsonArray.getString(i));
+                HashMap<String, String> produtos = new HashMap<>();
+                produtos.put("produto", produto1);
+                produtos.put("quantidade", quantidade);
+                produtos.put("obs", obs);
+                productList.add(produtos);
+
 
             }
-            lista.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listContents));
+            ListAdapter adapter = new SimpleAdapter(
+                    OrderDetailsActivity.this, productList,
+                    R.layout.itenslistaprodutos, new String[]{"produto", "quantidade", "obs"},
+                    new int[]{R.id.txtpruduto, R.id.txtqtd, R.id.txtobs});
+
+            lista.setAdapter(adapter);
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
     }
-
-
-
 
 
     @Override

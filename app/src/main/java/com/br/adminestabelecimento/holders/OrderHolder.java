@@ -28,11 +28,13 @@ import butterknife.ButterKnife;
 public class OrderHolder  extends RecyclerView.ViewHolder {
 
     @BindView(R.id.txtid) public TextView txtid;
+    @BindView(R.id.txtendereco) public TextView txtendereco;
+    @BindView(R.id.txtbairro) public TextView txtbairro;
+    @BindView(R.id.txtentregar) public TextView txtentregar;
+    @BindView(R.id.txtpagamento) public TextView txtpagamento;
+    @BindView(R.id.txttotal) public TextView txttotal;
 
     public Pedido order;
-    public ItenOrder pedido;
-    private List<Pedido> listapedido = new ArrayList<>();
-
     public OrderHolder(LayoutInflater inflater, ViewGroup parent) {
         super(inflater.inflate(R.layout.item_order, parent, false));
         ButterKnife.bind(this, itemView);
@@ -42,8 +44,6 @@ public class OrderHolder  extends RecyclerView.ViewHolder {
             public void onClick(View v){
                 Context c = v.getContext();
                 Intent intent = new Intent(c, OrderDetailsActivity.class);
-                // intent.putExtra("id", Long.toString(order.getId()));
-
                 try {
                     String listSerializedToJson = new Gson().toJson(order.getItens());
                     intent.putExtra("produtos", listSerializedToJson);

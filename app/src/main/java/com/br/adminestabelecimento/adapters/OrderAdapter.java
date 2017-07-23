@@ -33,6 +33,12 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderHolder> {
     public void onBindViewHolder(OrderHolder holder, int i) {
         Pedido objeto = lista.get(i);
         holder.txtid.setText(Long.toString(objeto.getId()));
+        holder.txtendereco.setText(objeto.getAddress());
+        holder.txtbairro.setText(objeto.getArea());
+        holder.txtentregar.setText(objeto.getNote_user());
+        holder.txtpagamento.setText(objeto.getPay_method());
+        holder.txttotal.setText(String.valueOf(objeto.getTotal()));
+
         holder.order = objeto;
     }
 
