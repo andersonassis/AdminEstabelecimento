@@ -32,7 +32,7 @@
 
         <TextView
             android:id="@+id/txtnome"
-            android:layout_width="match_parent"
+            android:layout_width="476dp"
             android:layout_height="match_parent"
             android:textSize="20sp"
             android:text="aqui" />
@@ -57,7 +57,7 @@
 
             <TextView
                 android:id="@+id/txtdescricao"
-                android:layout_width="match_parent"
+                android:layout_width="473dp"
                 android:layout_height="match_parent"
                 android:textSize="20sp"
                 android:text="aqui" />
@@ -86,10 +86,10 @@
 
         <TextView
             android:id="@+id/txtpreco"
-            android:layout_width="match_parent"
+            android:layout_width="138dp"
             android:layout_height="match_parent"
-            android:textSize="20sp"
-            android:text="aqui" />
+            android:text="aqui"
+            android:textSize="20sp" />
 
 
     </LinearLayout>
