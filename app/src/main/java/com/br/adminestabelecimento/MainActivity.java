@@ -12,7 +12,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnCadastroCategoria,btnCadastroProdutos,btnListarProdutos;
+    Button btnCadastroCategoria,btnarea,btnListarProdutos;
 
 
     @Override
@@ -25,9 +25,11 @@ public class MainActivity extends AppCompatActivity {
         //cast dos botões
         btnCadastroCategoria = (Button)findViewById(R.id.btn_cad_categoria);
         btnListarProdutos    = (Button)findViewById(R.id.btn_lista_pedidos);
+        btnarea              = (Button)findViewById(R.id.btnarea);
+
 
        //clicks
-        //Cadastro Categoria
+        // Botão Cadastro Categoria
         btnCadastroCategoria.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -35,7 +37,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //Listar Produtos
+
+        //botão cadastro de area
+        btnarea.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, AreaActivity.class));
+            }
+        });
+
+
+
+        //Botão Listar Produtos
         btnListarProdutos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

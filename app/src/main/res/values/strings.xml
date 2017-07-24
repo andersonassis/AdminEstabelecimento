@@ -5,11 +5,15 @@
     <string name="txtadmin">Administração</string>
 
     <string name="btn_cadastro_categoria">Cadastro de categorias e produtos</string>
+    <string name="btn_cadastro_area">Cadastro de Áreas</string>
     <string name="btn_cadastro_produtos">Cadastro de produtos</string>
     <string name="listar_pedidos">Listar Pedidos</string>
 
     <string name="btn_salvar_categoria">Salvar</string>
     <string name="hint">Insira a categoria</string>
+    <string name="hintarea">Insira a Area</string>
+    <string name="hintcidadearea">Insira a cidade da area</string>
+    <string name="hinttaxaarea">Insira a taxa da area</string>
     <string name="hintprodutos">Insira o nome do produto</string>
     <string name="hintdescrprodutos">Insira descrição do produto</string>
     <string name="hintprecoprodutos">Insira preço do produto</string>

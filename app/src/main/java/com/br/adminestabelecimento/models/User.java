@@ -9,7 +9,11 @@ public class User {
     private long id;
     private String name;
     private String cel;
+    private String cpf;
 
+
+
+   //get e setters
     public long getId() {
         return id;
     }
@@ -33,4 +37,13 @@ public class User {
     public void setCel(String cel) {
         this.cel = cel;
     }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
 }
