@@ -13,7 +13,9 @@
         android:layout_height="337dp"
         android:id="@+id/listaProdutos"
         android:layout_weight="0.98"
-        android:background="#FFFFFF" />
+        android:background="#FFFFFF"
+        android:divider="#FF0000"
+        android:dividerHeight="1dp"/>
 
 
 

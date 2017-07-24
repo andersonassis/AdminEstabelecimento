@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Administração</string>
+    <string name="app_name">Administrar</string>
     <string name="action_settings">Adicionar</string>
     <string name="excluir">Exluir</string>
     <string name="txtadmin">Administração</string>
@@ -14,10 +14,10 @@
     <string name="hintdescrprodutos">Insira descrição do produto</string>
     <string name="hintprecoprodutos">Insira preço do produto</string>
 
-    <string name="txtprodutos">Produto:  </string>
-    <string name="txtdescricao">Descrição:  </string>
-    <string name="txtpreco">Preço:  </string>
-    <string name="txtqtd">Quantidade:  </string>
-    <string name="txtobs">Observação:  </string>
+    <string name="txtprodutos">Produto:\u0020   </string>
+    <string name="txtdescricao">Descrição:\u0020   </string>
+    <string name="txtpreco">Preço:\u0020   </string>
+    <string name="txtqtd">Quantidade:\u0020   </string>
+    <string name="txtobs">Observação:\u0020</string>
 
 </resources>
