@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //botão cadastro de area
-        btnarea.setOnClickListener(new View.OnClickListener() {
+       btnarea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, AreaActivity.class));

@@ -79,8 +79,8 @@ public class AreaActivity extends AppCompatActivity implements ValueEventListene
     private void displayInputDialog()
     {
         d =new Dialog(this);
-        d.setTitle("Salvar Produtos");
-        d.setContentView(R.layout.imput_dialog_produtos);
+        d.setTitle("Salvar Area");
+        d.setContentView(R.layout.imput_dialog_area);
         final EditText nomearea          = (EditText) d.findViewById(R.id.nomearea);
         final EditText cidade            = (EditText) d.findViewById(R.id.cidade);
         final EditText taxa              = (EditText) d.findViewById(R.id.taxaarea);
@@ -93,8 +93,8 @@ public class AreaActivity extends AppCompatActivity implements ValueEventListene
                 int    result = 0;
                 result = seq + cont;
                 int    id      =  result;//aqui um random
-                String name    = nomearea.getText().toString();
-                String cid     = cidade.getText().toString();
+                String name    =  nomearea.getText().toString();
+                String cid     =  cidade.getText().toString();
                 String preco   =  taxa.getText().toString();
 
                 Area s = new Area();
