@@ -2,6 +2,7 @@
     <string name="app_name">Administrar</string>
     <string name="action_settings">Adicionar</string>
     <string name="excluir">Exluir</string>
+    <string name="atualiza">Atualizar</string>
     <string name="txtadmin">Administração</string>
 
     <string name="btn_cadastro_categoria">Cadastro de categorias e produtos</string>
@@ -23,5 +24,9 @@
     <string name="txtpreco">Preço:\u0020   </string>
     <string name="txtqtd">Quantidade:\u0020   </string>
     <string name="txtobs">Observação:\u0020</string>
+
+    <string name="txtbairroarea">Bairro:\u0020</string>
+    <string name="txtcidade">Cidade:\u0020</string>
+    <string name="txttaxa">Taxa:\u0020</string>
 
 </resources>

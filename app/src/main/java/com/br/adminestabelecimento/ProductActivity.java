@@ -119,16 +119,11 @@ public class ProductActivity extends AppCompatActivity implements ValueEventList
                         nomeproduto.setText("");
                         descricaoprodutos.setText("");
                         precoprodutos.setText("");
+                        cont = 0;
                         d.dismiss();
-                      //  Intent intent = new Intent(getApplicationContext(), ListarProdutor.class);
                         Intent intent = getIntent();
                         startActivity(intent);
                         finish();
-                       /* adaptador = new ProductAdapter(view_reciclada.getContext(), lista);
-                        view_reciclada.setAdapter(adaptador);
-                        view_reciclada.setHasFixedSize(true);
-                        view_reciclada.setLayoutManager(new LinearLayoutManager(getApplicationContext(),
-                                LinearLayoutManager.VERTICAL, false));*/
                     }
                 }else{
                     Toast.makeText(ProductActivity.this, "O nome não pode estar vazio", Toast.LENGTH_SHORT).show();
@@ -213,7 +208,7 @@ public class ProductActivity extends AppCompatActivity implements ValueEventList
         }
 
 
-        if (id == R.id.excluir) { // CLICK DO BOTÃO excluir
+        if (id == R.id.atualizar) { // CLICK DO BOTÃO excluir
            /* Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(intent);*/

@@ -44,7 +44,7 @@ public class AreaActivity extends AppCompatActivity implements ValueEventListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_area);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Aréas");
+        getSupportActionBar().setTitle("Áreas");
         ButterKnife.bind(this);
         data_reference = database.getReference().child("area");
         data_reference.addValueEventListener(this);
@@ -92,7 +92,7 @@ public class AreaActivity extends AppCompatActivity implements ValueEventListene
                 int    seq  = 1;
                 int    result = 0;
                 result = seq + cont;
-                int    id      =  result;//aqui um random
+                int    id      =  result;
                 String name    =  nomearea.getText().toString();
                 String cid     =  cidade.getText().toString();
                 String preco   =  taxa.getText().toString();
@@ -110,6 +110,7 @@ public class AreaActivity extends AppCompatActivity implements ValueEventListene
                         nomearea.setText("");
                         cidade.setText("");
                         taxa.setText("");
+                        cont = 0;
                         d.dismiss();
                         Intent intent = getIntent();
                         startActivity(intent);
@@ -121,7 +122,6 @@ public class AreaActivity extends AppCompatActivity implements ValueEventListene
             }
         });
         d.show();
-
     }
 
 
@@ -152,6 +152,16 @@ public class AreaActivity extends AppCompatActivity implements ValueEventListene
 
 
 
+
+    //atualizar os dados
+
+    public void atualiza(){
+
+
+    }
+
+
+
     //menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -173,11 +183,8 @@ public class AreaActivity extends AppCompatActivity implements ValueEventListene
         }
 
 
-        if (id == R.id.excluir) { // CLICK DO BOTÃO excluir
-           /* Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-            startActivity(intent);*/
-
+        if (id == R.id.atualizar) { // CLICK DO BOTÃO ATUALIZAR
+             atualiza();
             return true;
         }
 

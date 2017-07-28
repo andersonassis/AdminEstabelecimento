@@ -101,15 +101,11 @@ public class CategoryActivity extends AppCompatActivity implements ValueEventLis
                     if(salvar(s))
                     {
                         nameEditTxt.setText("");
+                        cont = 0;
                         d.dismiss();
                         Intent intent = getIntent();
                         startActivity(intent);
                         finish();
-                       /* adaptador = new CategoryAdapter(view_reciclada.getContext(), lista);
-                        view_reciclada.setAdapter(adaptador);
-                        view_reciclada.setHasFixedSize(true);
-                        view_reciclada.setLayoutManager(new LinearLayoutManager(getApplicationContext(),
-                                LinearLayoutManager.VERTICAL, false));*/
                     }
                 }else{
                     Toast.makeText(CategoryActivity.this, "O nome não pode estar vazio", Toast.LENGTH_SHORT).show();
@@ -167,7 +163,7 @@ public class CategoryActivity extends AppCompatActivity implements ValueEventLis
         }
 
 
-        if (id == R.id.excluir) { // CLICK DO BOTÃO excluir
+        if (id == R.id.atualizar) { // CLICK DO BOTÃO excluir
            /* Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(intent);*/

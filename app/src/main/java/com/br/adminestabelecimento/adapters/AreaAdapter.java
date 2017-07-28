@@ -37,6 +37,8 @@ public class AreaAdapter extends RecyclerView.Adapter<AreaHolder> {
     public void onBindViewHolder(AreaHolder holder, int i) {
         Area objeto = lista.get(i);
         holder.txtnomearea.setText(objeto.getName());
+        holder.txtcidade.setText(objeto.getCidade());
+        holder.txttaxa.setText(Double.toString(objeto.getTaxa()));
         holder.area = objeto;
     }
 
