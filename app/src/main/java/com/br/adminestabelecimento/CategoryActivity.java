@@ -163,13 +163,6 @@ public class CategoryActivity extends AppCompatActivity implements ValueEventLis
         }
 
 
-        if (id == R.id.atualizar) { // CLICK DO BOTÃO excluir
-           /* Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-            startActivity(intent);*/
-
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }

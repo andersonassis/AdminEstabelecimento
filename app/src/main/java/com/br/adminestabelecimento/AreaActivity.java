@@ -183,11 +183,6 @@ public class AreaActivity extends AppCompatActivity implements ValueEventListene
         }
 
 
-        if (id == R.id.atualizar) { // CLICK DO BOTÃO ATUALIZAR
-             atualiza();
-            return true;
-        }
-
         return super.onOptionsItemSelected(item);
     }
 
