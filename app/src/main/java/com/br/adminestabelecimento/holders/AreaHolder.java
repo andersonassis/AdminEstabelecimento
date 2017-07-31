@@ -48,6 +48,7 @@ public class AreaHolder extends RecyclerView.ViewHolder {
     public String nomeAreaatua;
     public String cidadeAreaatua;
     public double    taxa;
+    public String taxa2;
     String name;
     String cid;
     String preco;
@@ -68,10 +69,11 @@ public class AreaHolder extends RecyclerView.ViewHolder {
                 c = v.getContext();
                 data_reference = database.getReference().child("area");
                 data_reference.addValueEventListener((ValueEventListener) c);
-                idAtualiza = area.getId();
+                idAtualiza     = area.getId();
                 nomeAreaatua   = area.getName();
                 cidadeAreaatua = area.getCidade();
                 taxa           = area.getTaxa();
+                taxa2 = String.valueOf(taxa);
 
                 AlertDialog.Builder alert = new AlertDialog.Builder(c);
                 alert.setTitle("Atualizar Área");
@@ -108,12 +110,12 @@ public class AreaHolder extends RecyclerView.ViewHolder {
         d.setContentView(R.layout.imput_dialog_area);
         final EditText nomearea          = (EditText) d.findViewById(R.id.nomearea);
         final EditText cidade            = (EditText) d.findViewById(R.id.cidade);
-        final EditText taxa              = (EditText) d.findViewById(R.id.taxaarea);
+        final EditText taxaedit          = (EditText) d.findViewById(R.id.taxaarea);
         Button saveBtn                   = (Button) d.findViewById(R.id.saveBtn);
 
         nomearea.setText(nomeAreaatua);
         cidade.setText(cidadeAreaatua);
-        taxa.setText(taxa.getText().toString());
+        taxaedit.setText(taxa2);
 
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,7 +125,7 @@ public class AreaHolder extends RecyclerView.ViewHolder {
 
                 name = (nomearea.getText().toString());
                 cidadeAreaatua = (cidade.getText().toString());
-                preco   = (taxa.getText().toString());
+                preco   = (taxaedit.getText().toString());
 
                 Area s = new Area();
                 s.setId(id);
@@ -137,7 +139,7 @@ public class AreaHolder extends RecyclerView.ViewHolder {
                     {
                         nomearea.setText("");
                         cidade.setText("");
-                        taxa.setText("");
+                        taxaedit.setText("");
                         d.dismiss();
 
                     }
