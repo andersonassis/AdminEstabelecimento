@@ -74,7 +74,6 @@ public class AreaActivity extends AppCompatActivity implements ValueEventListene
 
     }
 
-
     //tela de dialogo para salvar
     private void displayInputDialog()
     {

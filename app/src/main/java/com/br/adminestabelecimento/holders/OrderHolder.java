@@ -48,7 +48,6 @@ public class OrderHolder  extends RecyclerView.ViewHolder {
                     String listSerializedToJson = new Gson().toJson(order.getItens());
                     intent.putExtra("produtos", listSerializedToJson);
                 }catch (Exception e){
-
                     e.printStackTrace();
                 }
 

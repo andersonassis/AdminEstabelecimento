@@ -101,7 +101,6 @@ public class AreaHolder extends RecyclerView.ViewHolder {
     }//FIM AREA HOLDE
 
 
-
     //tela de dialogo para atualizar e salvar
     private void displayInputDialog()
     {
@@ -120,7 +119,7 @@ public class AreaHolder extends RecyclerView.ViewHolder {
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int    id      =  idAtualiza;
+                int    id      =  idAtualiza; // id da posição
                 id2 = String.valueOf(id);
 
                 name = (nomearea.getText().toString());

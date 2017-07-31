@@ -50,9 +50,6 @@ public class OrderDetailsActivity extends AppCompatActivity {
         productList = new ArrayList<>();
         criarListagem();
 
-
-       // txtid.setText(listapedidos);
-
     }//fim do oncreate
 
     //metodo para criar a listagem
@@ -73,7 +70,6 @@ public class OrderDetailsActivity extends AppCompatActivity {
                 produtos.put("quantidade", quantidade);
                 produtos.put("obs", obs);
                 productList.add(produtos);
-
 
             }
             ListAdapter adapter = new SimpleAdapter(
