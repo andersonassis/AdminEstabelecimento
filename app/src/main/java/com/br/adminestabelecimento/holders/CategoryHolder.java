@@ -58,7 +58,13 @@ public final class CategoryHolder extends RecyclerView.ViewHolder {
                 });
 
                 alert.show();
-            }
+            }//fim onclick
         });//fim do click
+
+
+        //aqui o meotodo atualizar
+
+
+
     }//fim CategoryHolder
 }//fim da classe

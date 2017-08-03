@@ -6,7 +6,9 @@
     <string name="txtadmin">Administração</string>
 
     <string name="btn_cadastro_categoria">Cadastro de categorias e produtos</string>
+    <string name="btn_cadastro_categoria2">CADASTRO DE CATEGORIAS</string>
     <string name="btn_cadastro_area">Cadastro de Áreas</string>
+    <string name="btn_cadastro_area2">CADASTRO DE ÁREAS</string>
     <string name="btn_cadastro_produtos">Cadastro de produtos</string>
     <string name="listar_pedidos">Listar Pedidos</string>
 
