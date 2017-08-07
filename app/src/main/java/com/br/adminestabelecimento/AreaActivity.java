@@ -46,7 +46,8 @@ public class AreaActivity extends AppCompatActivity implements ValueEventListene
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Áreas");
         ButterKnife.bind(this);
-        data_reference = database.getReference().child("area");
+
+        data_reference = database.getReference().child("area");//firebase
         data_reference.addValueEventListener(this);
 
 
